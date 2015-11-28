@@ -28,6 +28,10 @@ traintestjoin<-rbind(trainjoin, testjoin)
 colnames(traintestjoin)<-c("subject","activity",as.character(features$V2[featmeanStdPos]))
 traintestjoin$activity<-factor(traintestjoin$activity, levels=activity_labels$V1,labels=activity_labels$V2)
 traintestjoin$subject<-as.factor(traintestjoin$subject)
+xactivities<-traintestjoin$activity
+alv2<-as.character(activity_labels$V2)
+foo<-mapvalues(xactivities, from = c(1,2,3,4,5,6), to = alv2)
+traintestjoin$activity<-foo
 
 # Output result into a text file
 write.table(traintestjoin, "tidy.txt", row.names = FALSE, quote = FALSE)
