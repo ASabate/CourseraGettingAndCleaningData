@@ -2,6 +2,7 @@
 # Getting and Cleaning Data Course Project, from Coursera
 # Date: 22/11/2015
 ####################################################################
+library(plyr)
 
 # Load activity labels
 activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt")
